@@ -36,7 +36,9 @@ picklearena-tests/
 ├── app/              # Directory for storing the mobile app build (.apk)
 ├── src/
 │   ├── data/         # Test data (e.g., test credentials, constants)
-│   ├── pages/        # Page Object Model (POM) classes representing app screens
+│   ├── pages/        # Page Object Model (POM) classes
+│   │   ├── CommonPage.ts  # Base class with shared locators (e.g., Back button)
+│   │   └── *Page.ts       # Screen-specific locators and methods
 │   └── tests/        # Test specification files (*.spec.ts)
 ├── .env              # Environment variables (e.g., credentials)
 ├── package.json      # Project dependencies and npm scripts
@@ -83,6 +85,6 @@ After running the tests, you can generate and view the report using the followin
   ```
 
 ## Adding New Tests
-- **Pages**: Add new screen interactions in the `src/pages/` folder. Export the page class instance at the bottom of the file.
+- **Pages**: Add new screen interactions in the `src/pages/` folder. Extend `CommonPage` to inherit universal locators. Export the page class instance at the bottom of the file.
 - **Tests**: Add new test specs in the `src/tests/` folder naming them `*.spec.ts`.
 - **Data**: Keep hardcoded test data out of the specs by placing them in `src/data/`.
