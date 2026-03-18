@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "es2020",
+    "types": [
+      "node",
+      "@wdio/globals/types",
+      "webdriverio",
+      "@wdio/mocha-framework"
+    ],
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "wdio.conf.ts"
+  ]
+}
