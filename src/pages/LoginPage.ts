@@ -1,49 +1,16 @@
 import CommonPage from "./CommonPage";
 
 class LoginPage extends CommonPage {
-    public get loginButton() {
-        return $('~Log in');
-    }
-
-    public get emailInputField() {
-        return $('//android.view.ViewGroup[@content-desc="Sign in, Email, Password, Or, Don\'t have an account?"]/android.view.ViewGroup[2]/android.view.ViewGroup');
-    }
-
-    public get passwordInputField() {
-        return $('//android.view.ViewGroup[@content-desc="Sign in, Email, Password, Or, Don\'t have an account?"]/android.view.ViewGroup[3]/android.view.ViewGroup');
-    }
-
-    public get showPasswordIcon() {
-        return $('//android.widget.ImageView');
-    }
-
-    public get signInButton() {
-        return $('~login-button');
-    }
-
-    public get forgotPasswordButton() {
-        return $('//android.widget.TextView[@text="Forgot password"]');
-    }
-
-    public get googleSignInButton() {
-        return $('//android.widget.Button[@text="Sign in with Google"]');
-    }
-
-    public get registerButton() {
-        return $('//android.widget.TextView[@text=" Register"]');
-    }
-
-    public get recoveryPasswordEmailInputField() {
-        return $('//android.view.ViewGroup[@content-desc="Forgot password, Enter your email address, we\'ll send you the instructions on how to change your password, Email, Don\'t have an account?"]/android.view.ViewGroup[2]/android.view.ViewGroup');
-    }
-
-    public get sendButton() {
-        return $('~send-button');
-    }
-
-    public get gotItButton() {
-        return $('~Got it');
-    }
+    public get loginButton() { return $('~Log in'); }
+    public get emailInputField() { return $('//android.view.ViewGroup[@content-desc="Sign in, Email, Password, Or, Don\'t have an account?"]/android.view.ViewGroup[2]/android.view.ViewGroup'); }
+    public get passwordInputField() { return $('//android.view.ViewGroup[@content-desc="Sign in, Email, Password, Or, Don\'t have an account?"]/android.view.ViewGroup[3]/android.view.ViewGroup'); }
+    public get signInButton() { return $('~login-button'); }
+    public get forgotPasswordButton() { return $('//android.widget.TextView[@text="Forgot password"]'); }
+    public get googleSignInButton() { return $('//android.widget.Button[@text="Sign in with Google"]'); }
+    public get registerButton() { return $('//android.widget.TextView[@text=" Register"]'); }
+    public get recoveryPasswordEmailInputField() { return $('//android.view.ViewGroup[@content-desc="Forgot password, Enter your email address, we\'ll send you the instructions on how to change your password, Email, Don\'t have an account?"]/android.view.ViewGroup[2]/android.view.ViewGroup'); }
+    public get sendButton() { return $('~send-button'); }
+    public get gotItButton() { return $('~Got it'); }
 
     public async clickInitialLoginButton() {
         await this.loginButton.waitForDisplayed();
@@ -62,11 +29,6 @@ class LoginPage extends CommonPage {
         await this.passwordInputField.click();
         await driver.pause(1000);
         await driver.keys(password);
-    }
-
-    public async togglePasswordVisibility() {
-        await this.showPasswordIcon.waitForDisplayed();
-        await this.showPasswordIcon.click();
     }
 
     public async clickSignInButton() {
