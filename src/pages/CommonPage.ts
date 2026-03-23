@@ -1,6 +1,14 @@
 export default class CommonPage {
     public get navigateBackIcon() { return $('//com.horcrux.svg.SvgView'); }
     public get showPasswordIcon() { return $('//android.widget.ImageView'); }
+    public get notificationsIcon() { return $('//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup'); }
+    public get profileIcon() { return $('//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ImageView'); }
+    public get viewProfileButton() { return $('~View profile'); }
+    public get editYourProfileButton() { return $('~Edit your profile'); }
+    public get signOutButton() { return $('~Sign out'); }
+    public get contextButton() { return $('(//android.widget.TextView[@text=""])[1]'); }
+    public get filtersButton() { return $('~, Filters'); }
+    public get mapViewButton() { return $('~Map view'); }
 
     public async clickNavigateBack() {
         await this.navigateBackIcon.waitForDisplayed();
@@ -10,6 +18,46 @@ export default class CommonPage {
     public async togglePasswordVisibility() {
         await this.showPasswordIcon.waitForDisplayed();
         await this.showPasswordIcon.click();
+    }
+
+    public async clickNotificationsIcon() {
+        await this.notificationsIcon.waitForDisplayed();
+        await this.notificationsIcon.click();
+    }
+
+    public async clickProfileIcon() {
+        await this.profileIcon.waitForDisplayed();
+        await this.profileIcon.click();
+    }
+
+    public async clickViewProfileButton() {
+        await this.viewProfileButton.waitForDisplayed();
+        await this.viewProfileButton.click();
+    }
+
+    public async clickEditYourProfileButton() {
+        await this.editYourProfileButton.waitForDisplayed();
+        await this.editYourProfileButton.click();
+    }
+
+    public async clickSignOutButton() {
+        await this.signOutButton.waitForDisplayed();
+        await this.signOutButton.click();
+    }
+
+    public async clickContextButton() {
+        await this.contextButton.waitForDisplayed();
+        await this.contextButton.click();
+    }
+
+    public async clickFiltersButton() {
+        await this.filtersButton.waitForDisplayed();
+        await this.filtersButton.click();
+    }
+
+    public async clickMapViewButton() {
+        await this.mapViewButton.waitForDisplayed();
+        await this.mapViewButton.click();
     }
 
     public async clearInput(element: any, lengthToClear: number = 30) {
