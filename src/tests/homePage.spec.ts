@@ -1,0 +1,28 @@
+import HomePage from '../pages/HomePage';
+import LoginPage from '../pages/LoginPage';
+import credentials from '../data/credentials';
+
+describe('Home Page UI Elements', () => {
+
+    before(async () => {
+        await LoginPage.successfulLogin(credentials.email, credentials.password);
+    });
+
+    after(async () => {
+        await HomePage.clickProfileIcon();
+        await HomePage.clickSignOutButton();
+    });
+
+    it('should display all main navigation buttons', async () => {
+        expect(await HomePage.courtsButton.isDisplayed()).toBe(true);
+        expect(await HomePage.eventsButton.isDisplayed()).toBe(true);
+        expect(await HomePage.calendarButton.isDisplayed()).toBe(true);
+        expect(await HomePage.teamsButton.isDisplayed()).toBe(true);
+        expect(await HomePage.ratingButton.isDisplayed()).toBe(true);
+    });
+
+    it('should display header icons (notifications and profile)', async () => {
+        expect(await HomePage.notificationsIcon.isDisplayed()).toBe(true);
+        expect(await HomePage.profileIcon.isDisplayed()).toBe(true);
+    });
+});
