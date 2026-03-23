@@ -80,11 +80,12 @@ class LoginPage extends CommonPage {
         return await this.missingCredentialsError.isDisplayed();
     }
 
-    public async loginFullFlow(email: string, password: string) {
+    public async successfulLogin(email: string, password: string) {
         await this.clickInitialLoginButton();
         await this.enterEmail(email);
         await this.enterPassword(password);
         await this.clickSignInButton();
+        await driver.pause(5000);
     }
 }
 
