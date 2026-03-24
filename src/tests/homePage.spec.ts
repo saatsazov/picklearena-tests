@@ -8,11 +8,6 @@ describe('Home Page UI Elements', () => {
         await LoginPage.successfulLogin(credentials.email, credentials.password);
     });
 
-    after(async () => {
-        await HomePage.clickProfileIcon();
-        await HomePage.clickSignOutButton();
-    });
-
     it('should display all main navigation buttons', async () => {
         expect(await HomePage.courtsButton.isDisplayed()).toBe(true);
         expect(await HomePage.eventsButton.isDisplayed()).toBe(true);
