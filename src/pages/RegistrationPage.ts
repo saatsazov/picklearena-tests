@@ -21,14 +21,6 @@ class RegistrationPage extends CommonPage {
     public get usernameInputField() { return $('//android.widget.EditText'); }
     public get usernameGenerateButton() { return $('//android.widget.TextView[@text="Auto generate"]'); }
 
-    public get newbySkillLevelButton() { return $('~Newby - 2.0 '); }
-    public get begginerSkillLevelButton() { return $('~Beginner - 2.5 '); }
-    public get noviceSkillLevelButton() { return $('~Novice - 3.0 '); }
-    public get intermediateSkillLevelButton() { return $('~Intermediate - 3.5 '); }
-    public get advancedIntermediateSkillLevelButton() { return $('~Advanced intermediate - 4.0 '); }
-    public get advancedSkillLevelButton() { return $('~Advanced - 4.5 '); }
-    public get expertSkillLevelButton() { return $('~Expert - 5.0 +'); }
-
     public get finishButton() { return $('~Finish'); }
     public get letsGoButton() { return $('~Let\'s go!'); }
 
