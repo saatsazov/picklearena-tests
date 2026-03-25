@@ -9,6 +9,9 @@ export default class CommonPage {
     public get contextButton() { return $('(//android.widget.TextView[@text=""])[1]'); }
     public get filtersButton() { return $('~, Filters'); }
     public get mapViewButton() { return $('~Map view'); }
+    public get createNewButton() { return $('//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup[2]/com.horcrux.svg.SvgView'); }
+    public get searchInputField() { return $('//android.widget.EditText[@text="Search ..."]'); }
+    public get filterButton() { return $('//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[2]/com.horcrux.svg.SvgView'); }
 
     public get newbySkillLevelButton() { return $('~Newby - 2.0 '); }
     public get begginerSkillLevelButton() { return $('~Beginner - 2.5 '); }
@@ -66,6 +69,24 @@ export default class CommonPage {
     public async clickMapViewButton() {
         await this.mapViewButton.waitForDisplayed();
         await this.mapViewButton.click();
+    }
+
+    public async clickCreateNewButton() {
+        await this.createNewButton.waitForDisplayed();
+        await this.createNewButton.click();
+    }
+
+    public async enterSearchText(text: string) {
+        await this.searchInputField.waitForDisplayed();
+        await this.searchInputField.click();
+        await this.clearInput(this.searchInputField);
+        await driver.pause(1000);
+        await driver.keys(text);
+    }
+
+    public async clickFilterButton() {
+        await this.filterButton.waitForDisplayed();
+        await this.filterButton.click();
     }
 
     public async clearInput(element: any, lengthToClear: number = 30) {
