@@ -13,6 +13,12 @@ export default class CommonPage {
     public get searchInputField() { return $('//android.widget.EditText[@text="Search ..."]'); }
     public get filterButton() { return $('//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[2]/com.horcrux.svg.SvgView'); }
 
+    public get homeTabButton() { return $('~Home'); }
+    public get leaguesTabButton() { return $('~Leagues'); }
+    public get groupsTabButton() { return $('~Groups'); }
+    public get chatsTabButton() { return $('~Chats'); }
+    public get moreTabButton() { return $('~More'); }
+
     public get newbySkillLevelButton() { return $('~Newby - 2.0 '); }
     public get begginerSkillLevelButton() { return $('~Beginner - 2.5 '); }
     public get noviceSkillLevelButton() { return $('~Novice - 3.0 '); }
@@ -87,6 +93,31 @@ export default class CommonPage {
     public async clickFilterButton() {
         await this.filterButton.waitForDisplayed();
         await this.filterButton.click();
+    }
+
+    public async clickHomeTab() {
+        await this.homeTabButton.waitForDisplayed();
+        await this.homeTabButton.click();
+    }
+
+    public async clickLeaguesTab() {
+        await this.leaguesTabButton.waitForDisplayed();
+        await this.leaguesTabButton.click();
+    }
+
+    public async clickGroupsTab() {
+        await this.groupsTabButton.waitForDisplayed();
+        await this.groupsTabButton.click();
+    }
+
+    public async clickChatsTab() {
+        await this.chatsTabButton.waitForDisplayed();
+        await this.chatsTabButton.click();
+    }
+
+    public async clickMoreTab() {
+        await this.moreTabButton.waitForDisplayed();
+        await this.moreTabButton.click();
     }
 
     public async clearInput(element: any, lengthToClear: number = 30) {
