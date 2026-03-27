@@ -21,6 +21,7 @@ export const config: WebdriverIO.Config = {
         'appium:automationName': 'UiAutomator2',
         'appium:app': join(process.cwd(), 'app/picklearena.apk'),
         'appium:autoGrantPermissions': true,
+        'appium:locationServicesEnabled': true,
     }],
 
     logLevel: 'info',
