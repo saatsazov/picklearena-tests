@@ -7,11 +7,12 @@ export default class CommonPage {
     public get editYourProfileButton() { return $('~Edit your profile'); }
     public get signOutButton() { return $('~Sign out'); }
     public get contextButton() { return $('(//android.widget.TextView[@text=""])[1]'); }
-    public get filtersButton() { return $('~, Filters'); }
+    public get filtersButton() { return $('//*[contains(@content-desc, "Filters") or contains(@text, "Filters")]'); }
     public get mapViewButton() { return $('~Map view'); }
+    public get closeIconButton() { return $('//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[3]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.view.View'); }
     public get createNewButton() { return $('//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup[2]/com.horcrux.svg.SvgView'); }
-    public get searchInputField() { return $('//android.widget.EditText[@text="Search ..."]'); }
-    public get filterButton() { return $('//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[2]/com.horcrux.svg.SvgView'); }
+    public get searchInputField() { return $('//android.view.ViewGroup[@content-desc="Search ..."]/android.view.ViewGroup'); }
+    public get filterIcon() { return $('//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[2]/com.horcrux.svg.SvgView'); }
 
     public get homeTabButton() { return $('~Home'); }
     public get leaguesTabButton() { return $('~Leagues'); }
@@ -67,6 +68,11 @@ export default class CommonPage {
         await this.contextButton.click();
     }
 
+    public async clickCloseIconButton() {
+        await this.closeIconButton.waitForDisplayed();
+        await this.closeIconButton.click();
+    }
+
     public async clickFiltersButton() {
         await this.filtersButton.waitForDisplayed();
         await this.filtersButton.click();
@@ -90,9 +96,9 @@ export default class CommonPage {
         await driver.keys(text);
     }
 
-    public async clickFilterButton() {
-        await this.filterButton.waitForDisplayed();
-        await this.filterButton.click();
+    public async clickFilterIcon() {
+        await this.filterIcon.waitForDisplayed();
+        await this.filterIcon.click();
     }
 
     public async clickHomeTab() {
